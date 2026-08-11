@@ -57,11 +57,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-15 z-50 transition-all duration-300 ${
-      scrolled 
-        ? "bg-card/200 backdrop-blur-md shadow-md border-b border-border" 
-        : location.pathname === "/" 
-          ? "bg-transparent" 
+    <nav className={`fixed top-0 left-0 right-0 w-full z-50 transition-[background-color,box-shadow,border-color] duration-300 ease-out will-change-[background-color] ${
+      scrolled
+        ? "bg-card/95 backdrop-blur-md shadow-md border-b border-border"
+        : location.pathname === "/"
+          ? "bg-transparent border-b border-transparent"
           : "bg-card border-b border-border"
     }`}>
       <div className="max-w-7xl mx-auto px-3 sm:px-4">
