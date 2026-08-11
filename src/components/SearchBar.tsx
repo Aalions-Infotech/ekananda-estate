@@ -11,7 +11,7 @@ interface SearchBarProps {
 
 const SearchBar = ({ variant = "hero" }: SearchBarProps) => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<"buy" | "rent" | "commercial" | "plot" | "investment" | "new-launch">("buy");
+  const [activeTab, setActiveTab] = useState<"buy" | "rent" | "commercial" | "plot" | "investment" | "new-launch" | "listings">("buy");
   const [query, setQuery] = useState("");
   const [selectedCity, setSelectedCity] = useState("All Lucknow");
   const [cityOpen, setCityOpen] = useState(false);
@@ -33,6 +33,7 @@ const SearchBar = ({ variant = "hero" }: SearchBarProps) => {
                  activeTab === "commercial" ? "/commercial" :
                  activeTab === "plot" ? "/buy?type=plot" :
                 activeTab === "investment" ? "/buy?type=investment" :
+                 activeTab === "listings" ? "/buy" :
                  "/new-projects";
     const params = new URLSearchParams();
     const q = query.trim();
