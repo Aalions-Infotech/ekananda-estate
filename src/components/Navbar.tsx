@@ -65,7 +65,7 @@ const Navbar = () => {
           : "bg-card border-b border-border"
     }`}>
       <div className="max-w-7xl mx-auto pl-3 pr-4 sm:pl-4 sm:pr-6 lg:pr-10">
-        <div className="flex items-center h-16 gap-2 sm:gap-3 lg:gap-4">
+        <div className="flex items-center flex-nowrap h-16 gap-2 sm:gap-3 lg:gap-4 min-w-0">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 flex-shrink-0 min-w-0">
             <img src={logoImg} alt={BRAND_NAME} className="w-10 h-8 sm:w-9 sm:h-9 rounded-lg object-cover flex-shrink-0" />
@@ -118,7 +118,7 @@ const Navbar = () => {
           {user && <OrgSwitcher onHome={!scrolled && location.pathname === "/"} />}
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1 flex-1">
+          <div className="hidden xl:flex items-center gap-1 flex-1 min-w-0">
             {/* For Buyers */}
             <div className="relative group">
               <button
@@ -319,7 +319,7 @@ const Navbar = () => {
             {/* Post Property */}
             <Link
               to="/post-property"
-              className="hidden lg:flex items-center gap-1.5 px-4 py-2 btn-navy rounded-xl text-sm"
+              className="hidden xl:flex items-center gap-1.5 px-4 py-2 btn-navy rounded-xl text-sm"
             >
               Post Property
               <span className="badge-new">FREE</span>
@@ -398,7 +398,7 @@ const Navbar = () => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`p-1.5 sm:p-2 rounded-full lg:hidden transition-all ${
+              className={`p-1.5 sm:p-2 rounded-full xl:hidden transition-all ${
                 !scrolled && location.pathname === "/" 
                   ? "text-white hover:bg-white/10" 
                   : "text-foreground hover:bg-muted"
@@ -412,7 +412,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-card border-t border-border shadow-lg max-h-[calc(100vh-4rem)] overflow-y-auto">
+        <div className="xl:hidden bg-card border-t border-border shadow-lg max-h-[calc(100vh-4rem)] overflow-y-auto">
           <div className="max-w-7xl mx-auto px-4 py-4 space-y-1">
             {/* Mobile City Selector */}
             <div className="sm:hidden pb-3 mb-2 border-b border-border">
