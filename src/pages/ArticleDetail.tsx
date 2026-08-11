@@ -66,9 +66,14 @@ const ArticleDetail = () => {
       <Navbar />
       <div className="pt-16">
         {article.featured_image_url && (
-          <div className="relative h-72 md:h-96">
-            <img src={article.featured_image_url} alt={article.title} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+          <div className="max-w-5xl mx-auto px-4 pt-6">
+            <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-2xl border border-border bg-muted">
+              <img
+                src={article.featured_image_url}
+                alt={article.title}
+                className="absolute inset-0 w-full h-full object-cover object-top"
+              />
+            </div>
           </div>
         )}
 
