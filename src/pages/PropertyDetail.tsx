@@ -142,6 +142,16 @@ const PropertyDetail = () => {
   const totalFloors = isLive ? property.total_floors : property.totalFloors;
   const nearbyPlaces = isLive ? [] : (property.nearbyPlaces || []);
 
+  // Owner contact details (fall back to brand contact only if listing has none)
+  const ownerName: string = (isLive ? property.contact_name : property.contactName) || "Property Owner";
+  const ownerPhoneRaw: string = (isLive ? property.contact_phone : property.contactPhone) || "";
+  const ownerWhatsappRaw: string = (isLive ? property.whatsapp_number : property.whatsappNumber) || ownerPhoneRaw;
+  const digits = (v: string) => (v || "").replace(/[^0-9]/g, "");
+  const ownerPhone = digits(ownerPhoneRaw);
+  const ownerWhatsapp = digits(ownerWhatsappRaw) || BRAND_WHATSAPP;
+  const waNumber = ownerWhatsapp.length === 10 ? `91${ownerWhatsapp}` : ownerWhatsapp;
+  const enquiryText = `Hi, I'm interested in: ${title} - ${locality}, ${city}`;
+
   // similar is fetched from DB above; fallback to empty array
 
   return (
