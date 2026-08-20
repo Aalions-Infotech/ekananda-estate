@@ -64,8 +64,8 @@ const Navbar = () => {
           ? "bg-transparent border-b border-transparent"
           : "bg-card border-b border-border"
     }`}>
-      <div className="max-w-7xl mx-auto pl-3 pr-4 sm:pl-4 sm:pr-6 lg:pr-10">
-        <div className="flex items-center h-16 gap-2 sm:gap-3 lg:gap-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+        <div className="flex items-center h-16 gap-1.5 sm:gap-2 lg:gap-3">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 flex-shrink-0 min-w-0">
             <img src={logoImg} alt={BRAND_NAME} className="w-10 h-8 sm:w-9 sm:h-9 rounded-lg object-cover flex-shrink-0" />
