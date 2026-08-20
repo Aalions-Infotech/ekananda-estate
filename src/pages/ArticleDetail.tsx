@@ -91,7 +91,14 @@ const ArticleDetail = () => {
             <span className="flex items-center gap-1"><Clock className="w-4 h-4" />{article.read_time} min read</span>
           </div>
 
-          <div className="prose prose-sm max-w-none dark:prose-invert" dangerouslySetInnerHTML={{ __html: article.content?.replace(/\n/g, "<br />") || "" }} />
+          <div
+            className="article-content prose prose-base max-w-none dark:prose-invert prose-headings:font-display prose-a:text-accent prose-img:rounded-xl prose-blockquote:border-accent"
+            dangerouslySetInnerHTML={{
+              __html: /<\/?[a-z][\s\S]*>/i.test(article.content || "")
+                ? article.content
+                : (article.content || "").replace(/\n/g, "<br />"),
+            }}
+          />
         </div>
 
         {related.length > 0 && (

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
+import RichTextEditor from "./RichTextEditor";
 import { Plus, Edit, Trash2, Eye, Save, X, Upload, FileText, Globe, Archive } from "lucide-react";
 
 interface AdminArticleManagementProps {
@@ -33,7 +34,11 @@ const AdminArticleManagement = ({ adminId }: AdminArticleManagementProps) => {
 
   const generateSlug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 
-  const calcReadTime = (content: string) => Math.max(1, Math.ceil(content.split(/\s+/).length / 200));
+  const stripHtml = (html: string) =>
+    html.replace(/<[^>]*>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+
+  const calcReadTime = (content: string) =>
+    Math.max(1, Math.ceil(stripHtml(content).split(/\s+/).filter(Boolean).length / 200));
 
   const resetForm = () => {
     setForm({ title: "", slug: "", excerpt: "", content: "", category: "Market News", status: "draft", author_name: "" });
@@ -57,7 +62,7 @@ const AdminArticleManagement = ({ adminId }: AdminArticleManagementProps) => {
   };
 
   const handleSubmit = async () => {
-    if (!form.title || !form.content) {
+    if (!form.title || !stripHtml(form.content)) {
       toast({ title: "Title and content are required", variant: "destructive" });
       return;
     }
@@ -82,7 +87,7 @@ const AdminArticleManagement = ({ adminId }: AdminArticleManagementProps) => {
       const payload: any = {
         title: form.title,
         slug,
-        excerpt: form.excerpt || form.content.substring(0, 160),
+        excerpt: form.excerpt || stripHtml(form.content).substring(0, 160),
         content: form.content,
         category: form.category,
         status: form.status,
@@ -177,7 +182,14 @@ const AdminArticleManagement = ({ adminId }: AdminArticleManagementProps) => {
             </div>
             <div className="md:col-span-2">
               <label className="text-xs font-medium text-muted-foreground mb-1 block">Content *</label>
-              <textarea value={form.content} onChange={e => setForm(f => ({ ...f, content: e.target.value }))} placeholder="Write article content... (supports HTML/markdown)" rows={10} className={`${fieldClass} resize-y font-mono text-xs`} />
+              <RichTextEditor
+                value={form.content}
+                onChange={html => setForm(f => ({ ...f, content: html }))}
+                placeholder="Write your article... use the toolbar for bold, italic, colors, links and more"
+              />
+              <p className="text-[11px] text-muted-foreground mt-1">
+                {stripHtml(form.content).split(/\s+/).filter(Boolean).length} words · ~{calcReadTime(form.content)} min read
+              </p>
             </div>
             <div>
               <label className="text-xs font-medium text-muted-foreground mb-1 block">Featured Image</label>
