@@ -31,7 +31,9 @@ const LivePropertyCard = ({ property, view = "grid" }: { property: any; view?: "
     return (
       <div className="bg-card rounded-2xl border border-border shadow-card overflow-hidden flex flex-col sm:flex-row hover:shadow-md transition-all">
         <div className="relative w-full sm:w-64 h-48 sm:h-auto flex-shrink-0">
-          <img src={mainImage} alt={property.title} className="w-full h-full object-cover" />
+          <Link to={`/property/${property.id}`} className="block w-full h-full" aria-label={`View ${property.title}`}>
+            <img src={mainImage} alt={property.title} className="w-full h-full object-cover" />
+          </Link>
           <div className="absolute top-3 left-3 flex gap-1.5 flex-wrap">
             {property.is_featured && <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-accent text-accent-foreground">Featured</span>}
             {property.is_new && <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-primary text-primary-foreground">New</span>}
@@ -71,7 +73,9 @@ const LivePropertyCard = ({ property, view = "grid" }: { property: any; view?: "
   return (
     <div className="bg-card rounded-2xl border border-border shadow-card overflow-hidden group hover:shadow-md transition-all">
       <div className="relative h-52 overflow-hidden">
-        <img src={mainImage} alt={property.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        <Link to={`/property/${property.id}`} className="block w-full h-full" aria-label={`View ${property.title}`}>
+          <img src={mainImage} alt={property.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+        </Link>
         <div className="absolute top-3 left-3 flex gap-1.5 flex-wrap">
           {property.is_featured && <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-accent text-accent-foreground">Featured</span>}
           {property.is_new && <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-primary text-primary-foreground">New</span>}
