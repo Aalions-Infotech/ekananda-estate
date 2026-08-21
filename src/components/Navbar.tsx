@@ -118,13 +118,13 @@ const Navbar = () => {
           {user && <OrgSwitcher onHome={!scrolled && location.pathname === "/"} />}
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1 flex-1">
+          <div className="hidden lg:flex items-center gap-0.5 flex-1 min-w-0">
             {/* For Buyers */}
             <div className="relative group">
               <button
                 onMouseEnter={() => setBuyersDropdown(true)}
                 onMouseLeave={() => setBuyersDropdown(false)}
-                className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`flex items-center gap-1 px-2.5 py-2 rounded-lg text-sm font-medium transition-all ${
                   !scrolled && location.pathname === "/" 
                     ? "text-white hover:bg-white/10" 
                     : "text-foreground hover:bg-muted"
@@ -163,7 +163,7 @@ const Navbar = () => {
               <button
                 onMouseEnter={() => setTenantsDropdown(true)}
                 onMouseLeave={() => setTenantsDropdown(false)}
-                className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`flex items-center gap-1 px-2.5 py-2 rounded-lg text-sm font-medium transition-all ${
                   !scrolled && location.pathname === "/" 
                     ? "text-white hover:bg-white/10" 
                     : "text-foreground hover:bg-muted"
@@ -196,7 +196,7 @@ const Navbar = () => {
               <button
                 onMouseEnter={() => setOwnersDropdown(true)}
                 onMouseLeave={() => setOwnersDropdown(false)}
-                className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`flex items-center gap-1 px-2.5 py-2 rounded-lg text-sm font-medium transition-all ${
                   !scrolled && location.pathname === "/" 
                     ? "text-white hover:bg-white/10" 
                     : "text-foreground hover:bg-muted"
@@ -229,7 +229,7 @@ const Navbar = () => {
               <button
                 onMouseEnter={() => setInsightsDropdown(true)}
                 onMouseLeave={() => setInsightsDropdown(false)}
-                className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`flex items-center gap-1 px-2.5 py-2 rounded-lg text-sm font-medium transition-all ${
                   !scrolled && location.pathname === "/" 
                     ? "text-white hover:bg-white/10" 
                     : "text-foreground hover:bg-muted"
@@ -266,7 +266,7 @@ const Navbar = () => {
 
             <Link
               to="/new-projects"
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`px-2.5 py-2 rounded-lg text-sm font-medium transition-all ${
                 !scrolled && location.pathname === "/" 
                   ? "text-white hover:bg-white/10" 
                   : "text-foreground hover:bg-muted"
@@ -277,7 +277,7 @@ const Navbar = () => {
 
             <Link
               to="/agents"
-              className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`px-2.5 py-2 rounded-lg text-sm font-medium transition-all ${
                 !scrolled && location.pathname === "/" 
                   ? "text-white hover:bg-white/10" 
                   : "text-foreground hover:bg-muted"
