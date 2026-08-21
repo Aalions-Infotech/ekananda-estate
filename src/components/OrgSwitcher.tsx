@@ -23,7 +23,7 @@ export default function OrgSwitcher({ onHome = false }: { onHome?: boolean }) {
     return (
       <button
         onClick={() => navigate("/org/create")}
-        className={`hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border text-xs font-medium transition-all ${
+        className={`hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-medium transition-all ${
           onHome ? "border-white/30 text-white hover:bg-white/10" : "border-border text-foreground hover:bg-muted"
         }`}
         title="Create your agency"
@@ -37,7 +37,7 @@ export default function OrgSwitcher({ onHome = false }: { onHome?: boolean }) {
     <div className="relative hidden md:block" ref={ref}>
       <button
         onClick={() => setOpen((v) => !v)}
-        className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border text-xs font-medium transition-all max-w-[120px] lg:max-w-[160px] ${
+        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-medium transition-all max-w-[180px] ${
           onHome ? "border-white/30 text-white hover:bg-white/10" : "border-border text-foreground hover:bg-muted"
         }`}
       >

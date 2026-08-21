@@ -64,8 +64,8 @@ const Navbar = () => {
           ? "bg-transparent border-b border-transparent"
           : "bg-card border-b border-border"
     }`}>
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
-        <div className="flex items-center h-16 gap-1.5 sm:gap-2 lg:gap-3">
+      <div className="max-w-7xl mx-auto pl-3 pr-4 sm:pl-4 sm:pr-6 lg:pr-10">
+        <div className="flex items-center h-16 gap-2 sm:gap-3 lg:gap-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 flex-shrink-0 min-w-0">
             <img src={logoImg} alt={BRAND_NAME} className="w-10 h-8 sm:w-9 sm:h-9 rounded-lg object-cover flex-shrink-0" />
@@ -118,13 +118,13 @@ const Navbar = () => {
           {user && <OrgSwitcher onHome={!scrolled && location.pathname === "/"} />}
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-0.5 flex-1 min-w-0">
+          <div className="hidden lg:flex items-center gap-1 flex-1">
             {/* For Buyers */}
             <div className="relative group">
               <button
                 onMouseEnter={() => setBuyersDropdown(true)}
                 onMouseLeave={() => setBuyersDropdown(false)}
-                className={`flex items-center gap-1 px-2.5 py-2 rounded-lg text-sm lg:text-xs xl:text-sm font-medium transition-all whitespace-nowrap ${
+                className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                   !scrolled && location.pathname === "/" 
                     ? "text-white hover:bg-white/10" 
                     : "text-foreground hover:bg-muted"
@@ -163,7 +163,7 @@ const Navbar = () => {
               <button
                 onMouseEnter={() => setTenantsDropdown(true)}
                 onMouseLeave={() => setTenantsDropdown(false)}
-                className={`flex items-center gap-1 px-2.5 py-2 rounded-lg text-sm lg:text-xs xl:text-sm font-medium transition-all whitespace-nowrap ${
+                className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                   !scrolled && location.pathname === "/" 
                     ? "text-white hover:bg-white/10" 
                     : "text-foreground hover:bg-muted"
@@ -196,7 +196,7 @@ const Navbar = () => {
               <button
                 onMouseEnter={() => setOwnersDropdown(true)}
                 onMouseLeave={() => setOwnersDropdown(false)}
-                className={`flex items-center gap-1 px-2.5 py-2 rounded-lg text-sm lg:text-xs xl:text-sm font-medium transition-all whitespace-nowrap ${
+                className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                   !scrolled && location.pathname === "/" 
                     ? "text-white hover:bg-white/10" 
                     : "text-foreground hover:bg-muted"
@@ -229,7 +229,7 @@ const Navbar = () => {
               <button
                 onMouseEnter={() => setInsightsDropdown(true)}
                 onMouseLeave={() => setInsightsDropdown(false)}
-                className={`flex items-center gap-1 px-2.5 py-2 rounded-lg text-sm lg:text-xs xl:text-sm font-medium transition-all whitespace-nowrap ${
+                className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                   !scrolled && location.pathname === "/" 
                     ? "text-white hover:bg-white/10" 
                     : "text-foreground hover:bg-muted"
@@ -266,7 +266,7 @@ const Navbar = () => {
 
             <Link
               to="/new-projects"
-              className={`px-2.5 py-2 rounded-lg text-sm lg:text-xs xl:text-sm font-medium transition-all whitespace-nowrap ${
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                 !scrolled && location.pathname === "/" 
                   ? "text-white hover:bg-white/10" 
                   : "text-foreground hover:bg-muted"
@@ -277,7 +277,7 @@ const Navbar = () => {
 
             <Link
               to="/agents"
-              className={`px-2.5 py-2 rounded-lg text-sm lg:text-xs xl:text-sm font-medium transition-all whitespace-nowrap ${
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                 !scrolled && location.pathname === "/" 
                   ? "text-white hover:bg-white/10" 
                   : "text-foreground hover:bg-muted"
@@ -288,12 +288,12 @@ const Navbar = () => {
           </div>
 
           {/* Right Actions */}
-          <div className="flex items-center gap-1 sm:gap-1.5 ml-auto flex-shrink-0 min-w-0">
+          <div className="flex items-center gap-1 sm:gap-2 ml-auto flex-shrink-0">
             {/* Theme Toggle */}
             {!enforced && (
             <button
               onClick={toggleTheme}
-              className={`p-1.5 rounded-full transition-all ${
+              className={`p-1.5 sm:p-2 rounded-full transition-all ${
                 !scrolled && location.pathname === "/" 
                   ? "text-white hover:bg-white/10" 
                   : "text-foreground hover:bg-muted"
@@ -307,7 +307,7 @@ const Navbar = () => {
             {/* Wishlist */}
             <Link
               to="/wishlist"
-              className={`p-1.5 rounded-full transition-all hidden md:flex ${
+              className={`p-2 rounded-full transition-all hidden md:flex ${
                 !scrolled && location.pathname === "/" 
                   ? "text-white hover:bg-white/10" 
                   : "text-foreground hover:bg-muted"
@@ -319,28 +319,28 @@ const Navbar = () => {
             {/* Post Property */}
             <Link
               to="/post-property"
-              className="hidden lg:flex items-center gap-1 px-3 py-1.5 btn-navy rounded-xl text-sm"
+              className="hidden lg:flex items-center gap-1.5 px-4 py-2 btn-navy rounded-xl text-sm"
             >
-              Post
+              Post Property
               <span className="badge-new">FREE</span>
             </Link>
 
             {/* Auth Actions */}
             {user ? (
-              <div className="relative flex-shrink-0 min-w-0" ref={userRef}>
+              <div className="relative" ref={userRef}>
                 <button
                   onClick={() => setUserDropdown((v) => !v)}
                   aria-haspopup="menu"
                   aria-expanded={userDropdown}
-                  className={`flex items-center gap-1 px-2 py-1.5 rounded-xl border border-border/50 text-sm font-medium hover:bg-muted transition-all min-w-0 ${
+                  className={`flex items-center gap-1.5 px-2 sm:px-3 py-2 rounded-xl border border-border/50 text-sm font-medium hover:bg-muted transition-all ${
                     !scrolled && location.pathname === "/" ? "text-white border-white/30 hover:bg-white/10" : ""
                   }`}
                 >
-                  <User className="w-4 h-4 flex-shrink-0" />
-                  <span className="hidden md:inline max-w-[72px] lg:max-w-[96px] truncate">
+                  <User className="w-4 h-4" />
+                  <span className="hidden md:inline max-w-[120px] truncate">
                     {user.user_metadata?.full_name || user.email?.split("@")[0]}
                   </span>
-                  <ChevronDown className="w-3.5 h-3.5 flex-shrink-0" />
+                  <ChevronDown className="w-3.5 h-3.5" />
                 </button>
                 {userDropdown && (
                   <div className="absolute right-0 top-full mt-2 bg-card border border-border rounded-xl shadow-lg p-2 w-56 z-50 animate-slide-up">
@@ -384,9 +384,9 @@ const Navbar = () => {
             ) : (
               <Link
                 to="/auth"
-                className={`flex items-center gap-1 px-2 py-1.5 rounded-xl border border-border/50 text-sm font-medium transition-all ${
+                className={`flex items-center gap-1.5 p-1.5 sm:px-3 sm:py-2 rounded-full sm:rounded-xl sm:border sm:border-border/50 text-sm font-medium transition-all ${
                   !scrolled && location.pathname === "/"
-                    ? "text-white hover:bg-white/10 border-white/30"
+                    ? "text-white hover:bg-white/10 sm:border-white/30"
                     : "text-foreground hover:bg-muted"
                 }`}
               >
@@ -398,7 +398,7 @@ const Navbar = () => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={`p-1.5 rounded-full lg:hidden transition-all ${
+              className={`p-1.5 sm:p-2 rounded-full lg:hidden transition-all ${
                 !scrolled && location.pathname === "/" 
                   ? "text-white hover:bg-white/10" 
                   : "text-foreground hover:bg-muted"
