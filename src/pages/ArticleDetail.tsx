@@ -8,7 +8,7 @@ import {
   Share2, Facebook, Twitter, Linkedin, Link2, MessageCircle, Languages, Printer,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { formatPrice, formatArea } from "@/lib/propertyDisplay";
+import { formatPropertyPrice, formatArea } from "@/lib/propertyDisplay";
 
 interface Heading { id: string; text: string; level: number }
 
@@ -332,7 +332,7 @@ const ArticleDetail = () => {
                       {p.images?.[0] && <img src={p.images[0]} alt={p.title} className="w-24 h-20 rounded-lg object-cover flex-shrink-0" />}
                       <div className="min-w-0">
                         <h3 className="text-sm font-semibold line-clamp-1 group-hover:text-accent transition-colors">{p.title}</h3>
-                        <p className="text-sm text-accent font-bold mt-0.5">{formatPrice(p.price)}</p>
+                        <p className="text-sm text-accent font-bold mt-0.5">{formatPropertyPrice(p.price)}</p>
                         <p className="text-xs text-muted-foreground mt-0.5 line-clamp-1">
                           {formatArea(p.area, p.area_unit)} · {p.locality || p.city}
                         </p>
