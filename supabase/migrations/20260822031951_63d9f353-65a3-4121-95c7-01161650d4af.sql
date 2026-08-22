@@ -1,0 +1,15 @@
+ALTER TABLE public.articles
+  ADD COLUMN IF NOT EXISTS key_takeaways jsonb NOT NULL DEFAULT '[]'::jsonb,
+  ADD COLUMN IF NOT EXISTS faqs jsonb NOT NULL DEFAULT '[]'::jsonb,
+  ADD COLUMN IF NOT EXISTS tags text[] NOT NULL DEFAULT '{}',
+  ADD COLUMN IF NOT EXISTS seo_title text,
+  ADD COLUMN IF NOT EXISTS seo_description text,
+  ADD COLUMN IF NOT EXISTS cta_title text,
+  ADD COLUMN IF NOT EXISTS cta_text text,
+  ADD COLUMN IF NOT EXISTS cta_button_label text,
+  ADD COLUMN IF NOT EXISTS cta_button_url text,
+  ADD COLUMN IF NOT EXISTS show_toc boolean NOT NULL DEFAULT true,
+  ADD COLUMN IF NOT EXISTS featured_property_ids uuid[] NOT NULL DEFAULT '{}',
+  ADD COLUMN IF NOT EXISTS related_locality text,
+  ADD COLUMN IF NOT EXISTS hindi_slug text,
+  ADD COLUMN IF NOT EXISTS views integer NOT NULL DEFAULT 0;

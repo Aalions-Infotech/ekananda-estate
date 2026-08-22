@@ -299,15 +299,29 @@ export type Database = {
           category: string
           content: string | null
           created_at: string
+          cta_button_label: string | null
+          cta_button_url: string | null
+          cta_text: string | null
+          cta_title: string | null
           excerpt: string | null
+          faqs: Json
           featured_image_url: string | null
+          featured_property_ids: string[]
+          hindi_slug: string | null
           id: string
+          key_takeaways: Json
           published_at: string | null
           read_time: number | null
+          related_locality: string | null
+          seo_description: string | null
+          seo_title: string | null
+          show_toc: boolean
           slug: string
           status: string
+          tags: string[]
           title: string
           updated_at: string
+          views: number
         }
         Insert: {
           author_id: string
@@ -315,15 +329,29 @@ export type Database = {
           category?: string
           content?: string | null
           created_at?: string
+          cta_button_label?: string | null
+          cta_button_url?: string | null
+          cta_text?: string | null
+          cta_title?: string | null
           excerpt?: string | null
+          faqs?: Json
           featured_image_url?: string | null
+          featured_property_ids?: string[]
+          hindi_slug?: string | null
           id?: string
+          key_takeaways?: Json
           published_at?: string | null
           read_time?: number | null
+          related_locality?: string | null
+          seo_description?: string | null
+          seo_title?: string | null
+          show_toc?: boolean
           slug: string
           status?: string
+          tags?: string[]
           title: string
           updated_at?: string
+          views?: number
         }
         Update: {
           author_id?: string
@@ -331,15 +359,29 @@ export type Database = {
           category?: string
           content?: string | null
           created_at?: string
+          cta_button_label?: string | null
+          cta_button_url?: string | null
+          cta_text?: string | null
+          cta_title?: string | null
           excerpt?: string | null
+          faqs?: Json
           featured_image_url?: string | null
+          featured_property_ids?: string[]
+          hindi_slug?: string | null
           id?: string
+          key_takeaways?: Json
           published_at?: string | null
           read_time?: number | null
+          related_locality?: string | null
+          seo_description?: string | null
+          seo_title?: string | null
+          show_toc?: boolean
           slug?: string
           status?: string
+          tags?: string[]
           title?: string
           updated_at?: string
+          views?: number
         }
         Relationships: []
       }

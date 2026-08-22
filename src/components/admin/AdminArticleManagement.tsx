@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import RichTextEditor from "./RichTextEditor";
-import { Plus, Edit, Trash2, Eye, Save, X, Upload, FileText, Globe, Archive } from "lucide-react";
+import { Plus, Edit, Trash2, Eye, Save, X, Upload, FileText, Globe, Archive, ListChecks, HelpCircle, Search, Megaphone, Building2, Tag } from "lucide-react";
 
 interface AdminArticleManagementProps {
   adminId: string;
@@ -16,14 +16,31 @@ const AdminArticleManagement = ({ adminId }: AdminArticleManagementProps) => {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [saving, setSaving] = useState(false);
-  const [form, setForm] = useState({
+  const [propertyOptions, setPropertyOptions] = useState<any[]>([]);
+  const emptyForm = {
     title: "", slug: "", excerpt: "", content: "", category: "Market News",
     status: "draft" as "draft" | "published" | "archived", author_name: "",
-  });
+    seo_title: "", seo_description: "", tags: "", hindi_slug: "", related_locality: "",
+    show_toc: true,
+    cta_title: "", cta_text: "", cta_button_label: "", cta_button_url: "",
+    key_takeaways: [] as string[],
+    faqs: [] as { question: string; answer: string }[],
+    featured_property_ids: [] as string[],
+  };
+  const [form, setForm] = useState(emptyForm);
 
   const categories = ["Market News", "Investment Guide", "Legal", "Interior Design", "Tax & Policy", "Buyer Guide", "Industry Update"];
 
-  useEffect(() => { fetchArticles(); }, []);
+  useEffect(() => {
+    fetchArticles();
+    (async () => {
+      const { data } = await (supabase.from("property_listings") as any)
+        .select("id, title, locality, city, price")
+        .order("created_at", { ascending: false })
+        .limit(100);
+      setPropertyOptions(data || []);
+    })();
+  }, []);
 
   const fetchArticles = async () => {
     setLoading(true);
@@ -41,7 +58,7 @@ const AdminArticleManagement = ({ adminId }: AdminArticleManagementProps) => {
     Math.max(1, Math.ceil(stripHtml(content).split(/\s+/).filter(Boolean).length / 200));
 
   const resetForm = () => {
-    setForm({ title: "", slug: "", excerpt: "", content: "", category: "Market News", status: "draft", author_name: "" });
+    setForm(emptyForm);
     setImageFile(null);
     setEditingId(null);
     setShowForm(false);
@@ -56,6 +73,19 @@ const AdminArticleManagement = ({ adminId }: AdminArticleManagementProps) => {
       category: article.category || "Market News",
       status: article.status || "draft",
       author_name: article.author_name || "",
+      seo_title: article.seo_title || "",
+      seo_description: article.seo_description || "",
+      tags: (article.tags || []).join(", "),
+      hindi_slug: article.hindi_slug || "",
+      related_locality: article.related_locality || "",
+      show_toc: article.show_toc !== false,
+      cta_title: article.cta_title || "",
+      cta_text: article.cta_text || "",
+      cta_button_label: article.cta_button_label || "",
+      cta_button_url: article.cta_button_url || "",
+      key_takeaways: article.key_takeaways || [],
+      faqs: article.faqs || [],
+      featured_property_ids: article.featured_property_ids || [],
     });
     setEditingId(article.id);
     setShowForm(true);
@@ -94,6 +124,19 @@ const AdminArticleManagement = ({ adminId }: AdminArticleManagementProps) => {
         author_id: adminId,
         author_name: form.author_name || "Admin",
         read_time: readTime,
+        seo_title: form.seo_title || null,
+        seo_description: form.seo_description || null,
+        tags: form.tags.split(",").map(t => t.trim()).filter(Boolean),
+        hindi_slug: form.hindi_slug || null,
+        related_locality: form.related_locality || null,
+        show_toc: form.show_toc,
+        cta_title: form.cta_title || null,
+        cta_text: form.cta_text || null,
+        cta_button_label: form.cta_button_label || null,
+        cta_button_url: form.cta_button_url || null,
+        key_takeaways: form.key_takeaways.map(t => t.trim()).filter(Boolean),
+        faqs: form.faqs.filter(f => f.question.trim() && f.answer.trim()),
+        featured_property_ids: form.featured_property_ids,
         ...(imageUrl && { featured_image_url: imageUrl }),
         ...(publishedAt && { published_at: publishedAt }),
       };
@@ -194,6 +237,94 @@ const AdminArticleManagement = ({ adminId }: AdminArticleManagementProps) => {
             <div>
               <label className="text-xs font-medium text-muted-foreground mb-1 block">Featured Image</label>
               <input type="file" accept="image/*" onChange={e => setImageFile(e.target.files?.[0] || null)} className="text-xs" />
+            </div>
+
+            {/* Key Takeaways */}
+            <div className="md:col-span-2 rounded-2xl border border-border p-4 space-y-2">
+              <div className="flex items-center justify-between">
+                <label className="text-sm font-semibold flex items-center gap-2"><ListChecks className="w-4 h-4 text-accent" /> Key Takeaways</label>
+                <button type="button" onClick={() => setForm(f => ({ ...f, key_takeaways: [...f.key_takeaways, ""] }))} className="text-xs px-2.5 py-1 rounded-lg border border-border hover:bg-muted">+ Add point</button>
+              </div>
+              {form.key_takeaways.length === 0 && <p className="text-xs text-muted-foreground">Shown as a highlighted summary box at the top of the article.</p>}
+              {form.key_takeaways.map((t, i) => (
+                <div key={i} className="flex gap-2">
+                  <input value={t} onChange={e => setForm(f => ({ ...f, key_takeaways: f.key_takeaways.map((x, xi) => xi === i ? e.target.value : x) }))} placeholder={`Takeaway ${i + 1}`} className={fieldClass} />
+                  <button type="button" onClick={() => setForm(f => ({ ...f, key_takeaways: f.key_takeaways.filter((_, xi) => xi !== i) }))} className="p-2 rounded-xl text-red-500 hover:bg-red-500/10"><X className="w-4 h-4" /></button>
+                </div>
+              ))}
+            </div>
+
+            {/* FAQs */}
+            <div className="md:col-span-2 rounded-2xl border border-border p-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <label className="text-sm font-semibold flex items-center gap-2"><HelpCircle className="w-4 h-4 text-accent" /> FAQs (adds Google FAQ rich-results markup)</label>
+                <button type="button" onClick={() => setForm(f => ({ ...f, faqs: [...f.faqs, { question: "", answer: "" }] }))} className="text-xs px-2.5 py-1 rounded-lg border border-border hover:bg-muted">+ Add FAQ</button>
+              </div>
+              {form.faqs.map((f2, i) => (
+                <div key={i} className="space-y-2 border border-border rounded-xl p-3">
+                  <div className="flex gap-2">
+                    <input value={f2.question} onChange={e => setForm(f => ({ ...f, faqs: f.faqs.map((x, xi) => xi === i ? { ...x, question: e.target.value } : x) }))} placeholder="Question" className={fieldClass} />
+                    <button type="button" onClick={() => setForm(f => ({ ...f, faqs: f.faqs.filter((_, xi) => xi !== i) }))} className="p-2 rounded-xl text-red-500 hover:bg-red-500/10"><X className="w-4 h-4" /></button>
+                  </div>
+                  <textarea value={f2.answer} onChange={e => setForm(f => ({ ...f, faqs: f.faqs.map((x, xi) => xi === i ? { ...x, answer: e.target.value } : x) }))} placeholder="Answer" rows={3} className={fieldClass} />
+                </div>
+              ))}
+            </div>
+
+            {/* CTA block */}
+            <div className="md:col-span-2 rounded-2xl border border-border p-4 space-y-3">
+              <label className="text-sm font-semibold flex items-center gap-2"><Megaphone className="w-4 h-4 text-accent" /> Call-to-Action Block</label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <input value={form.cta_title} onChange={e => setForm(f => ({ ...f, cta_title: e.target.value }))} placeholder="CTA heading" className={fieldClass} />
+                <input value={form.cta_text} onChange={e => setForm(f => ({ ...f, cta_text: e.target.value }))} placeholder="CTA supporting text" className={fieldClass} />
+                <input value={form.cta_button_label} onChange={e => setForm(f => ({ ...f, cta_button_label: e.target.value }))} placeholder="Button label (e.g. Get Property Details)" className={fieldClass} />
+                <input value={form.cta_button_url} onChange={e => setForm(f => ({ ...f, cta_button_url: e.target.value }))} placeholder="Button link (e.g. /buy or https://wa.me/...)" className={fieldClass} />
+              </div>
+            </div>
+
+            {/* Featured properties inside article */}
+            <div className="md:col-span-2 rounded-2xl border border-border p-4 space-y-3">
+              <label className="text-sm font-semibold flex items-center gap-2"><Building2 className="w-4 h-4 text-accent" /> Showcase Properties Inside Article</label>
+              <input value={form.related_locality} onChange={e => setForm(f => ({ ...f, related_locality: e.target.value }))} placeholder="Locality label (e.g. Gomti Nagar)" className={fieldClass} />
+              <div className="max-h-52 overflow-y-auto space-y-1 border border-border rounded-xl p-2">
+                {propertyOptions.map(p => (
+                  <label key={p.id} className="flex items-center gap-2 text-xs px-2 py-1.5 rounded-lg hover:bg-muted cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={form.featured_property_ids.includes(p.id)}
+                      onChange={e => setForm(f => ({
+                        ...f,
+                        featured_property_ids: e.target.checked
+                          ? [...f.featured_property_ids, p.id]
+                          : f.featured_property_ids.filter(id => id !== p.id),
+                      }))}
+                    />
+                    <span className="truncate">{p.title} · {p.locality || p.city}</span>
+                  </label>
+                ))}
+                {propertyOptions.length === 0 && <p className="text-xs text-muted-foreground p-2">No listings available yet.</p>}
+              </div>
+            </div>
+
+            {/* SEO & extras */}
+            <div className="md:col-span-2 rounded-2xl border border-border p-4 space-y-3">
+              <label className="text-sm font-semibold flex items-center gap-2"><Search className="w-4 h-4 text-accent" /> SEO & Extras</label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div>
+                  <input value={form.seo_title} onChange={e => setForm(f => ({ ...f, seo_title: e.target.value }))} placeholder="SEO title (max 60 chars)" maxLength={70} className={fieldClass} />
+                  <p className="text-[11px] text-muted-foreground mt-1">{form.seo_title.length}/60</p>
+                </div>
+                <div>
+                  <input value={form.seo_description} onChange={e => setForm(f => ({ ...f, seo_description: e.target.value }))} placeholder="Meta description (max 160 chars)" maxLength={180} className={fieldClass} />
+                  <p className="text-[11px] text-muted-foreground mt-1">{form.seo_description.length}/160</p>
+                </div>
+                <input value={form.tags} onChange={e => setForm(f => ({ ...f, tags: e.target.value }))} placeholder="Tags, comma separated" className={fieldClass} />
+                <input value={form.hindi_slug} onChange={e => setForm(f => ({ ...f, hindi_slug: e.target.value }))} placeholder="Hindi version slug (optional)" className={fieldClass} />
+              </div>
+              <label className="flex items-center gap-2 text-xs">
+                <input type="checkbox" checked={form.show_toc} onChange={e => setForm(f => ({ ...f, show_toc: e.target.checked }))} />
+                Show auto Table of Contents (built from H2/H3 headings)
+              </label>
             </div>
           </div>
           <div className="flex gap-2 pt-2">
