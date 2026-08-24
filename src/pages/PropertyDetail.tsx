@@ -17,6 +17,9 @@ import AiPricePrediction from "@/components/AiPricePrediction";
 import AiRecommendations from "@/components/AiRecommendations";
 import { getPropertyCoords } from "@/lib/geo";
 import { formatArea, getPricePerSqft, shouldShowBedsBaths } from "@/lib/propertyDisplay";
+import RecentlyViewed from "@/components/RecentlyViewed";
+import { trackRecentlyViewed } from "@/hooks/useRecentlyViewed";
+
 
 const ATTRIBUTE_LABELS: Record<string, string> = {
   total_land_area: "Total Land Area",
