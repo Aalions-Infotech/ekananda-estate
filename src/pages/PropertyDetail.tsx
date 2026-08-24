@@ -86,7 +86,26 @@ const PropertyDetail = () => {
     }
   };
 
+  // Track for "Recently Viewed"
+  const viewed = staticProperty || liveListing;
+  useEffect(() => {
+    if (!viewed || !id) return;
+    trackRecentlyViewed({
+      id,
+      title: viewed.title,
+      image: (viewed as any).images?.[0] || (viewed as any).image || null,
+      price: Number(viewed.price) || null,
+      locality: (viewed as any).locality || null,
+      city: (viewed as any).city || "Lucknow",
+      property_type: (viewed as any).property_type || (viewed as any).category || null,
+      listing_type: (viewed as any).listing_type || null,
+      area: Number((viewed as any).area) || null,
+      area_unit: (viewed as any).area_unit || (viewed as any).areaUnit || "sq.ft",
+    });
+  }, [viewed, id]);
+
   if (loading) {
+
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <Loader2 className="w-8 h-8 animate-spin text-accent" />
