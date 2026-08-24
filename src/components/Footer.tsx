@@ -120,7 +120,7 @@ const Footer = () => {
             {["Gomti Nagar", "Hazratganj", "Indira Nagar", "Aliganj", "Mahanagar", "Aminabad", "Alambagh", "Vibhuti Khand", "Jankipuram", "Sushant Golf City", "Sultanpur Road", "Faizabad Road", "Kanpur Road", "Chinhat", "Mall Avenue"].map(loc => (
               <Link
                 key={loc}
-                to={`/buy?city=Lucknow&locality=${encodeURIComponent(loc)}`}
+                to={`/lucknow/${loc.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
                 className="text-xs text-white/50 hover:text-white transition-colors"
               >
                 Property in {loc}
