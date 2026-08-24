@@ -37,6 +37,7 @@ import AgentCRM from "./pages/AgentCRM";
 import BuyerShortlists from "./pages/BuyerShortlists";
 import ThankYou from "./pages/ThankYou";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import LocalityPage from "./pages/LocalityPage";
 
 const queryClient = new QueryClient();
 
@@ -81,6 +82,7 @@ const App = () => (
                 <Route path="/shortlists" element={<BuyerShortlists />} />
                 <Route path="/thank-you" element={<ThankYou />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/lucknow/:slug" element={<LocalityPage />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

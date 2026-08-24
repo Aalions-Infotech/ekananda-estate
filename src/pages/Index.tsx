@@ -12,6 +12,7 @@ import SearchBar from "@/components/SearchBar";
 import PropertyCard from "@/components/PropertyCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import RecentlyViewed from "@/components/RecentlyViewed";
 import LeadForm from "@/components/LeadForm";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { formatPrice, cities } from "@/data/properties";
@@ -462,6 +463,7 @@ const Index = () => {
         </div>
       </section>
 
+      <RecentlyViewed />
       <Footer />
 
       <Dialog open={showLeadPopup} onOpenChange={(open) => {
