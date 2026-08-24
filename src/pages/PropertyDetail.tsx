@@ -484,7 +484,9 @@ const PropertyDetail = () => {
           )}
         </div>
       </div>
+      <RecentlyViewed excludeId={id} title="Recently Viewed Properties" />
       <Footer />
+
 
       {/* Floating Enquire Now Button */}
       <button
