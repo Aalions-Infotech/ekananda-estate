@@ -75,7 +75,8 @@ const Footer = () => {
               <span className="font-display font-bold text-xl">{BRAND_NAME}</span>
             </div>
             <p className="text-sm text-white/60 mb-5 leading-relaxed max-w-md">
-              Lucknow's most trusted real estate platform. Find your dream home, office, or investment property across every locality in the City of Nawabs.
+              Buy, sell & rent property in Lucknow with ease. Find your dream home, office, or
+investment property across every locality in the City of Nawabs.
             </p>
             <div className="space-y-2 text-sm text-white/70">
               <div className="flex items-center gap-2">

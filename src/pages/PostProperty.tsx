@@ -322,8 +322,8 @@ const PostProperty = () => {
       <div className="pt-16">
         <div className="bg-gradient-navy py-10">
           <div className="max-w-7xl mx-auto px-4">
-            <h1 className="text-4xl font-display font-bold text-white mb-2">Post Your Property</h1>
-            <p className="text-white/60 text-sm">List for FREE and connect with 5L+ buyers & tenants</p>
+            <h1 className="text-4xl font-display font-bold text-white mb-2">Post Property for Free in Lucknow</h1>
+            <p className="text-white/60 text-sm">List your property for free in minutes and connect with genuine buyers & tenants in Lucknow</p>
           </div>
         </div>
         <div className="max-w-3xl mx-auto px-4 py-10">

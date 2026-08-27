@@ -46,7 +46,7 @@ const News = () => {
         <div className="bg-gradient-navy py-10">
           <div className="max-w-7xl mx-auto px-4">
             <p className="text-gold text-xs font-bold tracking-widest mb-2">INSIGHTS</p>
-            <h1 className="text-4xl font-display font-bold text-white mb-4">Real Estate News & Articles</h1>
+            <h1 className="text-4xl font-display font-bold text-white mb-4">Lucknow Real Estate News & Articles</h1>
             <div className="relative max-w-md">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <input value={searchQuery} onChange={e => setSearchQuery(e.target.value)} placeholder="Search articles..." className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 text-sm outline-none focus:bg-white/20" />

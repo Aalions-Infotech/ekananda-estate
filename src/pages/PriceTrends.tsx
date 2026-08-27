@@ -42,8 +42,8 @@ const PriceTrends = () => {
         <div className="bg-gradient-navy py-10">
           <div className="max-w-7xl mx-auto px-4">
             <p className="text-gold text-xs font-bold tracking-widest mb-2">MARKET INTELLIGENCE</p>
-            <h1 className="text-4xl font-display font-bold text-white mb-2">Property Price Trends</h1>
-            <p className="text-white/60 text-sm">Real-time price data across Lucknow's top real estate markets</p>
+            <h1 className="text-4xl font-display font-bold text-white mb-2">Property Price Trends in Lucknow</h1>
+            <p className="text-white/60 text-sm">Track real-time property prices and rate changes across Lucknow</p>
           </div>
         </div>
 
@@ -110,7 +110,7 @@ const PriceTrends = () => {
               </div>
 
               {/* All Cities Grid */}
-              <h2 className="font-display font-bold text-2xl mb-4">Price Across All Cities</h2>
+              <h2 className="font-display font-bold text-2xl mb-4">Property Prices Across Lucknow</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {trends.map(t => (
                   <div key={t.city} className="bg-card rounded-2xl border border-border p-4 hover:shadow-md transition-all cursor-pointer" onClick={() => setActiveCity(t.city)}>

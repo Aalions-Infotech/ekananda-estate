@@ -187,13 +187,13 @@ const Index = () => {
         </div>
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 pt-20 sm:pt-24 pb-6">
           <div className="max-w-3xl mx-auto text-center mb-6 sm:mb-10">
-            <p className="section-label mb-3 text-[10px] sm:text-xs">Lucknow's Most Trusted Real Estate Platform</p>
+            <p className="section-label mb-3 text-[10px] sm:text-xs">Buy, Sell & Rent Property in Lucknow – Ekananda Estate  </p>
             <h1 className="text-[26px] leading-[1.15] sm:text-5xl md:text-6xl font-display font-bold text-white mb-3 sm:mb-4">
               Find Your Perfect<br />
               <span className="text-gold">Place to Live</span>
             </h1>
             <p className="text-sm sm:text-lg text-white/70 mb-6 sm:mb-8 px-2">
-             Find Your Perfect Property in Lucknow. Buy, Sell & Invest Securely
+               Find flats, houses & plots for sale in Lucknow. Ekananda Estate helps you buy, sell & rent property with ease. Search listings now.  
             </p>
           </div>
           <div className="max-w-4xl mx-auto">
@@ -234,7 +234,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8">
             <p className="section-label mb-2">ALL PROPERTY NEEDS · ONE PORTAL</p>
-            <h2 className="text-3xl font-display font-bold">Explore Real Estate Options</h2>
+            <h2 className="text-3xl font-display font-bold">Explore Property in Lucknow</h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-3 sm:gap-4">
             {quickCategories.map((cat) => (
@@ -253,8 +253,8 @@ const Index = () => {
           <div className="flex items-center justify-between mb-8">
             <div>
               <p className="section-label mb-1">Buy A Property</p>
-              <h2 className="text-3xl font-display font-bold">Find the Right Property & Own It Today </h2>
-              <p className="text-muted-foreground mt-1 text-sm">Search, Buy & Own the Property You’ve Always Wanted</p>
+              <h2 className="text-3xl font-display font-bold">Buy the Right Property in Lucknow </h2>
+              <p className="text-muted-foreground mt-1 text-sm">Search, Buy & Own Flats, Houses & Plots in Lucknow with Ekananda Estate</p>
             </div>
             <Link to="/buy" className="hidden md:flex items-center gap-1 text-accent font-medium text-sm hover:gap-2 transition-all">
               View All <ArrowRight className="w-4 h-4" />
@@ -288,8 +288,8 @@ const Index = () => {
           <div className="flex items-center justify-between mb-8">
             <div>
               <p className="section-label mb-1">RENT A HOME</p>
-              <h2 className="text-3xl font-display font-bold">Find Your Next Rental</h2>
-              <p className="text-muted-foreground mt-1 text-sm">Verified rental homes from owners and agents</p>
+              <h2 className="text-3xl font-display font-bold">Rent Property in Lucknow Today</h2>
+              <p className="text-muted-foreground mt-1 text-sm">Verified rentals, direct from owners, Lucknow</p>
             </div>
             <Link to="/rent" className="hidden md:flex items-center gap-1 text-accent font-medium text-sm hover:gap-2 transition-all">
               View All <ArrowRight className="w-4 h-4" />
@@ -312,9 +312,9 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <p className="section-label mb-1">MARKET INTELLIGENCE</p>
-              <h2 className="text-3xl font-display font-bold">Property Price Trends</h2>
-              <p className="text-muted-foreground mt-1 text-sm">Track price movements across top Lucknow localities</p>
+              <p className="section-label mb-1">PROPERTY INSIGHTS</p>
+              <h2 className="text-3xl font-display font-bold">  Lucknow Property Price Trends</h2>
+              <p className="text-muted-foreground mt-1 text-sm">Track property price changes in Lucknow localities</p>
             </div>
             <Link to="/price-trends" className="hidden md:flex items-center gap-1 text-accent font-medium text-sm hover:gap-2 transition-all">
               Full Report <ArrowRight className="w-4 h-4" />
@@ -358,8 +358,8 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10">
             <p className="text-gold text-xs font-bold tracking-widest mb-2"> Why Ekananda Estate</p>
-            <h2 className="text-3xl font-display font-bold text-white mb-3"> Your Property Journey, Our Responsibility</h2>
-            <p className="text-white/60 text-sm max-w-xl mx-auto">End-to-end assistance for a smooth experience.</p>
+            <h2 className="text-3xl font-display font-bold text-white mb-3"> Your Property in Lucknow, Our Responsibility</h2>
+            <p className="text-white/60 text-sm max-w-xl mx-auto">End-to-end support for a smooth property deals.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {whyUs.map(({ icon: Icon, title, desc }) => (
@@ -383,8 +383,8 @@ const Index = () => {
           <div className="flex items-center justify-between mb-8">
             <div>
               <p className="section-label mb-1">INSIGHTS & NEWS</p>
-              <h2 className="text-3xl font-display font-bold">Real Estate Articles</h2>
-              <p className="text-muted-foreground mt-1 text-sm">Stay informed with market updates and guides</p>
+              <h2 className="text-3xl font-display font-bold">Lucknow Real Estate Articles</h2>
+              <p className="text-muted-foreground mt-1 text-sm">Market updates and guides for Lucknow buyers</p>
             </div>
             <Link to="/news" className="hidden md:flex items-center gap-1 text-accent font-medium text-sm hover:gap-2 transition-all">
               All Articles <ArrowRight className="w-4 h-4" />
@@ -431,8 +431,8 @@ const Index = () => {
             </div>
             <div className="relative z-10">
               <p className="text-sm font-bold uppercase tracking-widest mb-3 text-foreground/70">FOR PROPERTY OWNERS</p>
-              <h2 className="text-4xl font-display font-bold text-foreground mb-3">Post Your Property for <span className="underline decoration-wavy">FREE</span></h2>
-              <p className="text-foreground/70 mb-8 max-w-lg mx-auto">Reach genuine buyers and tenants. List your property in minutes with zero brokerage.</p>
+              <h2 className="text-4xl font-display font-bold text-foreground mb-3">Post Your Property in Lucknow for<span className="underline decoration-wavy">FREE</span></h2>
+              <p className="text-foreground/70 mb-8 max-w-lg mx-auto">Reach thousands of buyers and tenants in Lucknow. Post in minutes, zero brokerage</p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link to="/post-property" className="btn-navy px-8 py-3 rounded-xl text-base inline-flex items-center gap-2 justify-center">
                   Post Property FREE <ArrowRight className="w-4 h-4" />
@@ -451,7 +451,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8">
             <p className="section-label mb-2">EXPLORE BY CITY</p>
-            <h2 className="text-3xl font-display font-bold">Properties in Top Cities</h2>
+            <h2 className="text-3xl font-display font-bold">Properties in Top Lucknow Areas</h2>
           </div>
           <div className="flex flex-wrap gap-3 justify-center">
             {cities.map(city => (
