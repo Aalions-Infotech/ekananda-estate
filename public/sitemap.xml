@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Homepage -->
+    <url>
+        <loc>https://ekanandaestate.com/</loc>
+    </url>
+
+    <!-- Property Listing Pages -->
+    <url>
+        <loc>https://ekanandaestate.com/buy</loc>
+    </url>
+
+    <url>
+        <loc>https://ekanandaestate.com/rent</loc>
+    </url>
+
+    <url>
+        <loc>https://ekanandaestate.com/commercial</loc>
+    </url>
+
+    <url>
+        <loc>https://ekanandaestate.com/pg</loc>
+    </url>
+
+    <!-- Projects -->
+    <url>
+        <loc>https://ekanandaestate.com/new-projects</loc>
+    </url>
+
+    <!-- Real Estate Information -->
+    <url>
+        <loc>https://ekanandaestate.com/price-trends</loc>
+    </url>
+
+    <url>
+        <loc>https://ekanandaestate.com/home-loans</loc>
+    </url>
+
+    <!-- News & Articles -->
+    <url>
+        <loc>https://ekanandaestate.com/news</loc>
+    </url>
+
+    <!-- Agents -->
+    <url>
+        <loc>https://ekanandaestate.com/agents</loc>
+    </url>
+
+    <!-- Agent Registration -->
+    <url>
+        <loc>https://ekanandaestate.com/become-agent</loc>
+    </url>
+
+    <!-- Legal -->
+    <url>
+        <loc>https://ekanandaestate.com/privacy-policy</loc>
+    </url>
+
+</urlset>
