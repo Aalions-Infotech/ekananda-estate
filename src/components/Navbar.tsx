@@ -3,12 +3,12 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { 
   ChevronDown, Menu, X, Sun, Moon, 
   Heart, User, LogIn, Building2, Home, 
-  MapPin, TrendingUp, BookOpen, Star, Shield, LayoutDashboard, LogOut
+  MapPin, TrendingUp, BookOpen, Star, Shield, LayoutDashboard, LogOut, Facebook, Instagram, Twitter
 } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 import { useAuth } from "@/hooks/useAuth";
 import { lucknowLocalities } from "@/data/properties";
-import { BRAND_NAME } from "@/constants/brand";
+import { BRAND_NAME, BRAND_SOCIAL } from "@/constants/brand";
 import logoImg from "@/assets/ekananda-logo.webp";
 import OrgSwitcher from "@/components/OrgSwitcher";
 
@@ -18,6 +18,13 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  // Keep floating chat widgets out of the way while the mobile menu drawer is open
+  useEffect(() => {
+    if (mobileOpen) document.body.setAttribute("data-nav-menu-open", "true");
+    else document.body.removeAttribute("data-nav-menu-open");
+    return () => document.body.removeAttribute("data-nav-menu-open");
+  }, [mobileOpen]);
   const [selectedCity, setSelectedCity] = useState("All Lucknow");
   const [cityDropdown, setCityDropdown] = useState(false);
   const [buyersDropdown, setBuyersDropdown] = useState(false);
@@ -492,6 +499,32 @@ const Navbar = () => {
                 <LogIn className="w-4 h-4 text-muted-foreground" /> Login / Register
               </Link>
             )}
+
+            {/* Social profiles */}
+            <div className="pt-4 mt-4 border-t border-border">
+              <p className="text-[11px] font-semibold tracking-wider text-muted-foreground px-3 mb-2">
+                FOLLOW EKANANDA ESTATE
+              </p>
+              <div className="flex flex-wrap gap-2 px-3">
+                {BRAND_SOCIAL.map(({ label, url, handle }) => {
+                  const Icon = label === "Facebook" ? Facebook : label === "Instagram" ? Instagram : Twitter;
+                  return (
+                    <a
+                      key={label}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Ekananda Estate on ${label}`}
+                      title={`${label}: ${handle}`}
+                      className="flex items-center gap-2 px-3 py-2 rounded-xl border border-border text-xs font-medium hover:bg-muted transition-colors"
+                    >
+                      <Icon className="w-3.5 h-3.5" />
+                      {label === "X (Twitter)" ? "X" : label}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       )}

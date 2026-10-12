@@ -1,0 +1,21 @@
+# Ekananda Estate
+
+> Ekananda Estate is a real estate platform focused on buying, selling, renting and property information in Lucknow, Uttar Pradesh, India.
+
+## Main Pages
+
+- [Ekananda Estate Home](https://ekanandaestate.com/)
+- [Properties for Sale in Lucknow](https://ekanandaestate.com/buy?city=Lucknow)
+
+## About the Website
+
+Ekananda Estate helps users discover property opportunities in Lucknow, including residential, commercial and land-related real estate options. The website also provides property-market information and real-estate resources.
+
+## Location
+
+- Lucknow, Uttar Pradesh, India
+
+## Important Notes
+
+- The website may add, remove or update property listings over time.
+- Property availability and listing information should be checked on the live website.

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { CheckCircle2, Home, Phone } from "lucide-react";
+import { CheckCircle2, Home, Phone, Facebook, Instagram, Twitter } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { BRAND_SOCIAL } from "@/constants/brand";
 
 const ThankYou = () => {
   return (
@@ -26,6 +27,31 @@ const ThankYou = () => {
             <a href="tel:+919369556641" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-border font-medium text-sm hover:bg-muted">
               <Phone className="w-4 h-4" /> Call Us
             </a>
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-border">
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+              Follow new Lucknow listings on
+            </p>
+            <div className="flex justify-center gap-2 flex-wrap">
+              {BRAND_SOCIAL.map(({ label, url, handle }) => {
+                const Icon = label === "Facebook" ? Facebook : label === "Instagram" ? Instagram : Twitter;
+                return (
+                  <a
+                    key={label}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Ekananda Estate on ${label}`}
+                    title={`${label}: ${handle}`}
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-border text-xs font-medium hover:bg-muted transition-colors"
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                    {label === "X (Twitter)" ? "X" : label}
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
       </main>

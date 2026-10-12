@@ -27,6 +27,7 @@ import AdminAdvancedAnalytics from "@/components/admin/AdminAdvancedAnalytics";
 import AdminUserManagement from "@/components/admin/AdminUserManagement";
 import AdminPlatformSettings from "@/components/admin/AdminPlatformSettings";
 import AdminUpdateRequests from "@/components/admin/AdminUpdateRequests";
+import AdminDataExport from "@/components/admin/AdminDataExport";
 import { useToast } from "@/hooks/use-toast";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart as RPieChart, Pie, Cell, LineChart, Line, CartesianGrid, Legend } from "recharts";
 
@@ -402,6 +403,7 @@ const AdminDashboard = () => {
     { id: "analytics", label: "Analytics", icon: BarChart3 },
     { id: "leads", label: "Leads", icon: Mail },
     { id: "audit", label: "Audit Trail", icon: History },
+    { id: "exports", label: "Data Export", icon: Download },
     { id: "moderation", label: "Moderation", icon: Shield },
     { id: "notifications", label: "Notifications", icon: Bell },
     { id: "plans", label: "Pricing Plans", icon: DollarSign },
@@ -523,6 +525,7 @@ const AdminDashboard = () => {
 
         <div className="p-4 md:p-6 flex-1">
           {/* OVERVIEW */}
+          {tab === "exports" && <AdminDataExport />}
           {tab === "overview" && (
             <div className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
