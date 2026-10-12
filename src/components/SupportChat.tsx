@@ -108,7 +108,7 @@ const SupportChat = () => {
   }
 
   return (
-    <>
+    <div className="support-chat-root">
       {/* WhatsApp Float */}
       <a
         href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
@@ -235,7 +235,7 @@ const SupportChat = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

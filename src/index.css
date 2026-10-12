@@ -471,3 +471,8 @@
 .article-content img { max-width: 100%; height: auto; border-radius: 0.75rem; }
 .article-content table { width: 100%; border-collapse: collapse; }
 .article-content td, .article-content th { border: 1px solid hsl(var(--border)); padding: 0.5rem; }
+
+/* Hide floating support/chat widgets while the mobile nav drawer is open */
+body[data-nav-menu-open] .support-chat-root {
+  display: none !important;
+}

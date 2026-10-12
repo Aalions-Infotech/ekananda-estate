@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
@@ -59,3 +60,42 @@
     </url>
 
 </urlset>
+=======
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://ekanandaestate.com/</loc></url>
+  <url><loc>https://ekanandaestate.com/buy</loc></url>
+  <url><loc>https://ekanandaestate.com/rent</loc></url>
+  <url><loc>https://ekanandaestate.com/commercial</loc></url>
+  <url><loc>https://ekanandaestate.com/new-projects</loc></url>
+  <url><loc>https://ekanandaestate.com/price-trends</loc></url>
+  <url><loc>https://ekanandaestate.com/home-loans</loc></url>
+  <url><loc>https://ekanandaestate.com/news</loc></url>
+  <url><loc>https://ekanandaestate.com/agents</loc></url>
+  <url><loc>https://ekanandaestate.com/post-property</loc></url>
+  <url><loc>https://ekanandaestate.com/privacy-policy</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/gomti-nagar</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/hazratganj</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/indira-nagar</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/aliganj</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/mahanagar</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/aminabad</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/chowk</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/alambagh</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/vibhuti-khand</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/jankipuram</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/vikas-nagar</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/rajajipuram</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/telibagh</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/sushant-golf-city</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/sultanpur-road</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/faizabad-road</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/kanpur-road</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/aashiana</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/chinhat</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/bakshi-ka-talab</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/mall-avenue</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/butler-colony</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/husainganj</loc></url>
+  <url><loc>https://ekanandaestate.com/lucknow/rajendra-nagar</loc></url>
+</urlset>
+>>>>>>> 8d88a8cf239653f4fce6c80296b58f28a27679d7

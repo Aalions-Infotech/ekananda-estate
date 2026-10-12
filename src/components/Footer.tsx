@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube, Linkedin, ChevronDown } from "lucide-react";
-import { BRAND_NAME, BRAND_EMAIL, BRAND_PHONE, BRAND_COPYRIGHT } from "@/constants/brand";
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, ChevronDown } from "lucide-react";
+import { BRAND_NAME, BRAND_EMAIL, BRAND_PHONE, BRAND_COPYRIGHT, BRAND_SOCIAL } from "@/constants/brand";
 import logoImg from "@/assets/ekananda-logo.webp";
 
 const Footer = () => {
@@ -92,12 +92,28 @@ investment property across every locality in the City of Nawabs.
                 <span> Lucknow Amausi Sarojini Nagar</span>
               </div>
             </div>
-            <div className="flex gap-3 mt-5">
-              {[Facebook, Twitter, Instagram,  Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-foreground transition-all">
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
+            <div className="mt-6">
+              <p className="text-xs font-display font-semibold uppercase tracking-wider text-gold mb-3">
+                Follow Ekananda Estate
+              </p>
+              <div className="flex gap-3">
+                {BRAND_SOCIAL.map(({ label, url, handle }) => {
+                  const Icon = label === "Facebook" ? Facebook : label === "Instagram" ? Instagram : Twitter;
+                  return (
+                    <a
+                      key={label}
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`${label}: ${handle}`}
+                      aria-label={`Ekananda Estate on ${label}`}
+                      className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-foreground transition-all"
+                    >
+                      <Icon className="w-4 h-4" />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
