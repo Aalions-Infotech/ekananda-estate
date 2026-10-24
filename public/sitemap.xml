@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
+
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
@@ -60,7 +60,7 @@
     </url>
 
 </urlset>
-=======
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://ekanandaestate.com/</loc></url>
   <url><loc>https://ekanandaestate.com/buy</loc></url>
@@ -98,4 +98,4 @@
   <url><loc>https://ekanandaestate.com/lucknow/husainganj</loc></url>
   <url><loc>https://ekanandaestate.com/lucknow/rajendra-nagar</loc></url>
 </urlset>
->>>>>>> 8d88a8cf239653f4fce6c80296b58f28a27679d7
+
